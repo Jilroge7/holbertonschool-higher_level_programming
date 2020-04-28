@@ -8,9 +8,9 @@ zero = " and is 0"
 lessand = " and is less than 6 and not 0"
 lastdig = number % 10
 
-if number > 5:
+if lastdig > 5:
     print("{}{:d}{}{:d}{}".format(str1, number, str2, lastdig, greater))
-elif number == 0:
+elif lastdig == 0:
     print("{}{:d}{}{:d}{}".format(str1, number, str2, lastdig, zero))
 else:
     print("{}{:d}{}{:d}{}".format(str1, number, str2, lastdig, lessand))
