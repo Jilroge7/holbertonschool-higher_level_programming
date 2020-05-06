@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
     import sys
-    from calculator_1 import add, sub, mul, div
+    import calculator_1
     str1 = "Usage: ./100-my_calculator.py <a> <operator> <b>"
     str2 = "Unknown operator. Available operators: +, -, * and /"
     num = (len(sys.argv))
