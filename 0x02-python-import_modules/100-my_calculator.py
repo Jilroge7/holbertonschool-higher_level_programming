@@ -27,6 +27,6 @@ if __name__ == "__main__":
         result = calculator_1.mul(a, b)
 
     if sys.argv[2] == "/":
-        result = calculator_1.sub(a, b)
+        result = calculator_1.div(a, b)
 
     print("{:d} {} {:d} = {:d}".format(a, sys.argv[2], b, result))
