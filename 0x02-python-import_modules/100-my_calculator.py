@@ -3,7 +3,7 @@
 # if arg 2 not an operator print "unknown op..." exit 1
 
 import sys
-import calculator_1
+from calculator_1 import add, sub, mul, div
 if __name__ == "__main__":
     str1 = "Usage: ./100-my_calculator.py <a> <operator> <b>"
     str2 = "Unknown operator. Available operators: +, -, * and /"
