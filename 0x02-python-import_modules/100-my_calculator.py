@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-# num args == 3 print "Usage:..." and exit 1
-# if arg 2 not an operator print "unknown op..." exit 1
-
-import sys
-from calculator_1 import add, sub, mul, div
 if __name__ == "__main__":
+    import sys
+    from calculator_1 import add, sub, mul, div
     str1 = "Usage: ./100-my_calculator.py <a> <operator> <b>"
     str2 = "Unknown operator. Available operators: +, -, * and /"
     num = (len(sys.argv))
