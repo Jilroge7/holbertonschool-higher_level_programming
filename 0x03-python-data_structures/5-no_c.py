@@ -2,6 +2,8 @@
 def no_c(my_string):
 
     convertList = list(my_string)
+    index = 0
+    editedString = ""
 
     if (len(my_string)) == 0:
         return my_string
@@ -10,5 +12,7 @@ def no_c(my_string):
 
     for elements in new_string[:]:
         if elements == 'c' or elements == 'C':
-            # stuff goes here
-            return new_string
+            del(new_string[index])
+            index -= 1
+        index += 1
+    return (editedString.join(new_string))
