@@ -1,19 +1,14 @@
 #!/usr/bin/python3
-"""Module here"""
+"""Module of elaborated class Square"""
 
 
 class Square:
     """Square defined class with private attribute size"""
     def __init__(self, size=0):
-        self.__size = size  # size is user input or prog input
-        if size is not 0:
-            self._size = size
-
-        if (str(size).isdigit()):
-            try:
-                if size >= 0:
-                    self._size = size
-            except ValueError:
-                print("size must be >= 0")
-            except:
-                print("size must be an integer")
+        if isinstance(size, int):
+            if size < 0:
+                raise ValueError("size must be >= 0")
+            else:
+                self.__size = size
+        elif not isinstance(size, int):
+            raise TypeError("size must be an integer")
