@@ -1,4 +1,4 @@
-#!/usr/bin/pyton3
+#!/usr/bin/python3
 """Module here"""
 
 
@@ -10,7 +10,6 @@ class Square:
             self._size = size
 
         if (str(size).isdigit()):
-            """protected instance attribute, check for integer"""
             try:
                 if size >= 0:
                     self._size = size
