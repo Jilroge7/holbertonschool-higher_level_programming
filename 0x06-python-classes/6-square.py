@@ -47,11 +47,11 @@ class Square:
             print()
         else:
             if self.__position:
-                for i in tuple(self.__position):
-                    print("_")
-            else:
-                print()
-            for i in range(int(self.__size)):
+                for i in range(self.__position[1]):
+                    print()
                 for i in range(int(self.__size)):
-                    print("#", end="")
-                print()
+                    for i in range(self.__position[0]):
+                            print("_", end="")
+                    for i in range(int(self.__size)):
+                        print("#", end="")
+                    print()
