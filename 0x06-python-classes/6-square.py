@@ -14,14 +14,14 @@ class Square:
         return self.__size
 
     @size.setter
-    def size(self, size):
+    def size(self, value):
         """Module to set value of size"""
-        if isinstance(size, int):
-            if size < 0:
+        if isinstance(value, int):
+            if value < 0:
                 raise ValueError("size must be >= 0")
             else:
-                self.__size = size
-        elif not isinstance(size, int):
+                self.__size = value
+        elif not isinstance(value, int):
                 raise TypeError("size must be an integer")
 
     @property
@@ -32,14 +32,14 @@ class Square:
     @position.setter
     def position(self, value):
         """Module to set values for position"""
-        if not isinstance(position, tuple) and position < 0:
+        if not isinstance(value, tuple) and value < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif not isinstance(position[0], int):
+        elif not isinstance(value[0], int):
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif not isinstance(position[1], int):
+        elif not isinstance(value[1], int):
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
-            self.__position = position
+            self.__position = value
 
     def area(self):
         """Public instance method to determine area"""
