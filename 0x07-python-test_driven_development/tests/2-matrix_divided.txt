@@ -1,0 +1,16 @@
+The ``matrix_divided doctest`` module
+===================================
+
+Using ``matrix_divided``
+___________________________________
+
+Tests to run for task 1, matrix_divided.
+
+import function from module name:
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+    Dividing matrix by a regular integer:
+    >>> matrix_divided(matrix, 3)
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
