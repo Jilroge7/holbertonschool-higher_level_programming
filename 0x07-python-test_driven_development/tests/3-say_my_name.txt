@@ -15,8 +15,8 @@ import function from module name:
     My name is John Smith
 
     Passing one argument 'fist_name':
-    >>> say_my_name("Bob") #doctest: +REPORT_NDIFF
-    My name is Bob
+    >>> say_my_name("Bob")
+    My name is Bob 
 
     Passing a non-string with a string:
     >>> say_my_name(12, "White")
@@ -61,8 +61,8 @@ import function from module name:
     SyntaxError: EOL while scanning string literal
 
     Passing first arg with comma and space:
-    >>> say_my_name("Walter", ) #doctest: +REPORT_NDIFF
-    My name is Walter
+    >>> say_my_name("Walter", )
+    My name is Walter 
 
     Passing with no quotes:
     >>> say_my_name(Walter White)
