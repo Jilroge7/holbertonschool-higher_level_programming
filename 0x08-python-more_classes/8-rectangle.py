@@ -10,7 +10,7 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
-        self.number_of_instances += 1
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -73,7 +73,7 @@ class Rectangle:
 
     def __del__(self):
         """Builtin to ensure proper deletion of an instance"""
-        self.number_of_instances -= 1
+        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
 
     @staticmethod
@@ -84,9 +84,9 @@ class Rectangle:
         if not isinstance(rect_2, Rectangle):
             raise TypeError("rect_2 must be an instance of Rectangle")
         if isinstance((rect_1, rect_2), Rectangle):
-            if self.area(rect_1) == self.area(rect_2):
+            if rect_1.area() == rect_2.area():
                 return self.rect_1
-            elif self.area(rect_1) < self.area(rect_2):
+            elif rect_1.area() < rect_2.area():
                 return self.rect_2
             else:
                 return self.rect_1

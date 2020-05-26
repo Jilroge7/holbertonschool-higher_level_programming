@@ -21,7 +21,7 @@ class Rectangle:
                 raise ValueError("width must be >= 0")
             else:
                 self.__width = value
-        if not isinstance(value, int):
+        elif not isinstance(value, int):
             raise TypeError("width must be an integer")
 
     @property
@@ -37,7 +37,7 @@ class Rectangle:
                 raise ValueError("height must be >= 0")
             else:
                 self.__height = value
-        if not isinstance(value, int):
+        elif not isinstance(value, int):
             raise TypeError("height must be an integer")
 
     def area(self):
@@ -46,7 +46,7 @@ class Rectangle:
 
     def perimeter(self):
         """publ inst method that determines perimeter of rect"""
-        if self.__width == 0 or self.__height == 0:
+        if int(self.__width) == 0 or int(self.__height) == 0:
             return 0
         else:
             return (int(self.__width) * 2) + (int(self.__height) * 2)
