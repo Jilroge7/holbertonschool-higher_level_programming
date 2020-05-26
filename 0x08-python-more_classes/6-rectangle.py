@@ -1,21 +1,22 @@
 #!/usr/bin/python3
-"""Module for str and repr"""
+"""Module of rectangle class with number of instances"""
 
 
 class Rectangle:
-    """class rectangle defined with private inst attrib width and height"""
+    """class Rectangle with priv inst attrib width and heigh, pub inst"""
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
+        self.number_of_instances = 0
 
     @property
     def width(self):
-        """method to get value of width"""
+        """Method to get the value of width"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """method to set the value of width"""
+        """Method to set the value of width"""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if isinstance(value, int):
@@ -26,12 +27,12 @@ class Rectangle:
 
     @property
     def height(self):
-        """method to get value of height"""
+        """Method to get the value of height"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """method to set the value of height"""
+        """Method to set the value of height"""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if isinstance(value, int):
@@ -41,18 +42,18 @@ class Rectangle:
                 self.__height = value
 
     def area(self):
-        """publ ins method to determine area of rect"""
+        """Pub Inst Method to determine area of rect"""
         return int(self.__width) * int(self.__height)
 
     def perimeter(self):
-        """publ inst method to determine perimeter of rect"""
+        """Pub Inst Method to determine perimeter of rect"""
         if int(self.__width) == 0 or int(self.__height) == 0:
             return 0
         else:
             return (int(self.__width) * 2) + (int(self.__height) * 2)
 
     def __str__(self):
-        """built in to return printed representation of string instance"""
+        """Builtin Method to print representation of string instance"""
         picture = ""
         for i in range(int(self.__height)):
             for i in range(int(self.__width)):
@@ -61,3 +62,12 @@ class Rectangle:
                 picture += "#"
             picture += '\n'
         return picture[:-1]
+
+    def __repr__(self):
+        """Builtin Method to return string represen of string inst"""
+        return "Rectangle({}, {})".format(eval(repr(self.__width)), (
+               eval(repr(self.__height))))
+
+    def __del__(self):
+        """Builtin to ensure proper deletion of instance"""
+        print("Bye rectangle...")

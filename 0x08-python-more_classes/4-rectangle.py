@@ -46,7 +46,7 @@ class Rectangle:
 
     def perimeter(self):
         """Pub Ins Method to determine perimeter of inst rect"""
-        if self.__width == 0 or self.__height == 0:
+        if int(self.__width) == 0 or int(self.__height) == 0:
             return 0
         else:
             return (int(self.__width) * 2) + (int(self.__height) * 2)
@@ -56,7 +56,7 @@ class Rectangle:
         picture = ""
         for i in range(int(self.__height)):
             for i in range(int(self.__width)):
-                if self.__height == 0 or self.__width == 0:
+                if int(self.__height) == 0 or int(self.__width) == 0:
                     return picture
                 picture += "#"
             picture += '\n'
