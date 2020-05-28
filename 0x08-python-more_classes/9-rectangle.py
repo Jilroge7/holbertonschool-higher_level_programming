@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Module for rectangle class"""
+"""Module to set new instance of rect as square"""
 
 
 class Rectangle:
-    """class rectangle with priv inst attrib width and height"""
+    """class Rectangle of priv ins attrib width and height"""
     number_of_instances = 0
     print_symbol = "#"
 
@@ -14,15 +14,15 @@ class Rectangle:
 
     @property
     def width(self):
-        """Method to get the value of width"""
+        """Method to get value of width"""
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Method to set the value of width"""
+        """Method to set value of width"""
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
-        elif isinstance(value, int):
+        if isinstance(value, int):
             if value < 0:
                 raise ValueError("width must be >= 0")
             else:
@@ -30,55 +30,55 @@ class Rectangle:
 
     @property
     def height(self):
-        """Method to get the value of height"""
+        """Method to get value of height"""
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Method to set the value of height"""
+        """Method to set value of height"""
         if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        elif isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if isinstance(value, int):
             if value < 0:
                 raise ValueError("height must be >= 0")
             else:
                 self.__height = value
 
     def area(self):
-        """Pub Method to determine area of rect"""
-        return int(self.__width) * int(self.__height)
+        """Pub Inst Method to determine area of rect"""
+        return int(self.width) * int(self.height)
 
     def perimeter(self):
-        """Pub method to determine perimeter of rect"""
-        if int(self__width) == 0 or int(self.__height) == 0:
+        """Pub Inst Method to determine perimeter of rect"""
+        if self.width == 0 or self.height == 0:
             return 0
         else:
-            return (int(self.__width) * 2) + (int(self.__height) * 2)
+            return (int(self.width) * 2) + (int(self.height) * 2)
 
     def __str__(self):
         """Builtin to print representation of string instance"""
         picture = ""
-        for i in range(int(self.__height)):
-            for i in range(int(self.__width)):
-                if int(self.__height) == 0 or int(self.__width) == 0:
+        for i in range(self.height):
+            for i in range(self.width):
+                if self.height == 0 or self.width == 0:
                     return picture
                 picture += str(self.print_symbol)
             picture += '\n'
-        return picture
+        return picture[:-1]
 
     def __repr__(self):
         """Builtin to return representation of string instance"""
-        return "Rectangle({}, {})".format(eval(repr(self.__width)), (
-               eval(repr(self.__height))))
+        return "Rectangle({}, {})".format(eval(repr(self.width)), (
+            eval(repr(self.height))))
 
     def __del__(self):
-        """Builtin to ensure proper deletion of an instance"""
+        """Builtin to return a printed message when instance is deleted"""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """Static metho to return bigger instance"""
+        """Static method to determine which inst is bigger or equal"""
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
         elif not isinstance(rect_2, Rectangle):
@@ -88,5 +88,10 @@ class Rectangle:
                 return rect_1
             elif (rect_1.area()) > (rect_2.area()):
                 return rect_1
-            elif (rect_1.area()) < (rect_2.area()):
+            elif (rect_2.area()) > (rect_2.area()):
                 return rect_2
+
+    @classmethod
+    def square(cls, size=0):
+        """Class method that returns a new rectangle"""
+        return cls(size, size)
