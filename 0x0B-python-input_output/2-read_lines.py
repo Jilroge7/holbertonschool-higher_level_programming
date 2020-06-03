@@ -11,6 +11,6 @@ def read_lines(filename="", nb_lines=0):
             if lineNum < nb_lines:
                 print(line, end="")
 
-            elif nb_lines == 0:
+            elif nb_lines <= 0 or nb_lines >= len(line):
                 print(line, end="")
             lineNum += 1
