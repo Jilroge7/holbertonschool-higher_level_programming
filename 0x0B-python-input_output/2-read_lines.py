@@ -4,7 +4,7 @@
 
 def read_lines(filename="", nb_lines=0):
     """Func to read n of lines in a txt file"""
-    with open('my_file_0.txt', encoding='utf-8') as a_file:
+    with open(filename, encoding='UTF8') as a_file:
         lineNum = 0
 
         for line in a_file:
