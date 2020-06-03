@@ -9,8 +9,8 @@ def read_lines(filename="", nb_lines=0):
 
         for line in a_file:
             if lineNum < nb_lines:
-                print(line, end="")
+                print(a_file.readline(), end="")
 
-            elif nb_lines <= 0 or nb_lines >= len(line):
-                print(line, end="")
+            elif nb_lines <= 0:
+                print(a_file.read(), end="")
             lineNum += 1
