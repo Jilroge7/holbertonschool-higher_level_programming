@@ -35,3 +35,8 @@ import function from module name:
     Traceback (most recent call last):
         ...
     NameError: name 's' is not defined
+
+    Passing Nothing:
+    >>> my_list = MyList()
+    >>> my_list.print_sorted()
+    []
