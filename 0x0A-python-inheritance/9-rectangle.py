@@ -13,10 +13,10 @@ class Rectangle(BaseGeometry):
 
     def area(self):
         """Pub Inst Method to determine area"""
-        return int(self.width) * int(self.height)
+        return int(self.__width) * int(self.__height)
 
     def __str__(self):
         """Builtin for string repr of instance"""
-        result = "[Rectangle] {:d}/{:d}".format(int(self.width), (
-                 int(self.height)))
+        result = "[Rectangle] {:d}/{:d}".format(int(self.__width), (
+                 int(self.__height)))
         return result
