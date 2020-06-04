@@ -17,5 +17,6 @@ class Rectangle(BaseGeometry):
 
     def __str__(self):
         """Builtin for string repr of instance"""
-        result = "[Rectangle] {:d}/{:d}".format(int(self.width), int(self.height))
+        result = "[Rectangle] {:d}/{:d}".format(int(self.width), (
+                 int(self.height)))
         return result
