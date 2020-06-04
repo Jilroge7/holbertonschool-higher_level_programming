@@ -11,10 +11,21 @@ class Student():
 
     def to_json(self, attrs=None):
         """Pub Method to retrieve dict repr of instance"""
-        if all(isinstance(value, attrs) for value in attrs):
-            return self.__dict__
+        if type(attrs) == list:
+            if all(isinstance(value, attrs) for value in attrs):
+                new_dict = {}
+                for value in attrs:
+                    if value in list(self.__dict__.key()):
+                        new_dict[value] = self.__dict__[value]
+            return new_dict
         else:
             return self.__dict__
 
     def reload_from_json(self, json):
         """Pub Method to replace all attrib of Student"""
+        if "first_name" in (json.keys()):
+            self.first_name = json.get("first_name")
+        if "last_name" in (json.keys()):
+            self.last_name = json.get("last_name")
+        if "age" in (json.keys()):
+            self.age = json.get("age")
