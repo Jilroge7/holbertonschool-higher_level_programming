@@ -10,6 +10,7 @@ class RectangleInitTestSuite(unittest.TestCase):
         self.r1 = Rectangle(2, 10)
         self.r2 = Rectangle(10, 2, 0, 0, 12)
         self.r3 = Rectangle(10, 2, 0, 0, -1)
+        self.r4 = Rectangle(1, 2, 3, 4)
 
     def test_a_init(self):
         """Test to return self.id from Rectangle"""
@@ -25,6 +26,10 @@ class RectangleInitTestSuite(unittest.TestCase):
     def test_b_validating_attributes(self):
         """Test cases to validate"""
         self.assertTrue(self.r0)
+        self.assertTrue(self.r1)
+        self.assertTrue(self.r2)
+        self.assertTrue(self.r3)
+        self.assertTrue(self.r4)
         with self.assertRaises(TypeError):
             Rectangle(10, "2")
         with self.assertRaises(ValueError):
@@ -33,6 +38,10 @@ class RectangleInitTestSuite(unittest.TestCase):
             Rectangle(2)
         with self.assertRaises(TypeError):
             Rectangle()
+        with self.assertRaises(TypeError):
+            Rectangle(5.00, 7)
+        with self.assertRaises(ValueError):
+            Rectangle(10, 2, 3, -1)
 
     def tearDown(self):
         """Cleaning up after myself"""
@@ -40,6 +49,7 @@ class RectangleInitTestSuite(unittest.TestCase):
         del self.r1
         del self.r2
         del self.r3
+        del self.r4
 
 if __name__ == "__main__":
     unittest.main()
