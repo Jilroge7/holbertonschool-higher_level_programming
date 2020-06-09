@@ -95,8 +95,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """Overriding str method to return str repr of rect"""
-        result = "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(self.id,
-                 self.x, self.y, self.width, self.height)
+        result = "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
+                 self.id, self.x, self.y, self.width, self.height)
         return result
 
     def update(self, *args, **kwargs):
@@ -111,7 +111,8 @@ class Rectangle(Base):
         if args:
             for counter, value in enumerate(args):
                 dict[counter] = value
-                self.id, self.__width, self.__height, self.__x, self.__y = dict[0], dict[1], dict[2], dict[3], dict[4]
+                self.id, self.__width, self.__height, self.__x, self.__y \
+                    = dict[0], dict[1], dict[2], dict[3], dict[4]
         else:
             for key, value in kwargs.items():
                 if 'id' in kwargs:
@@ -127,5 +128,11 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """Pub method to return dict repr of instances"""
-        r = Rectangle()
-        return r.__dict__
+        recDict = {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
+        return recDict
