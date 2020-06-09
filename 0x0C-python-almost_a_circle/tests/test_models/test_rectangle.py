@@ -2,7 +2,7 @@ import unittest
 from models.rectangle import Rectangle
 
 
-class RectangleTestSuite(unittest.TestCase):
+class RectangleInitTestSuite(unittest.TestCase):
     """Testing Rectangle subclass"""
     def setUp(self):
         """Initializing objects for test"""
@@ -21,6 +21,18 @@ class RectangleTestSuite(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle(3)
         self.assertEqual(self.r3, -1)
+
+    def test_b_validating_attributes(self):
+        """Test cases to validate"""
+        self.assertTrue(self.r0)
+        with self.assertRaises(TypeError):
+            Rectangle(10, "2")
+        with self.assertRaises(ValueError):
+            Rectangle(-10, 2)
+        with self.assertRaises(TypeError):
+            Rectangle(2)
+        with self.assertRaises(TypeError):
+            Rectangle()
 
     def tearDown(self):
         """Cleaning up after myself"""
