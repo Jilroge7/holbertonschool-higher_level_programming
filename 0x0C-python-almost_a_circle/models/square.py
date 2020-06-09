@@ -22,6 +22,30 @@ class Square(Rectangle):
 
     def __str__(self):
         """builtin to print string repr of instance"""
-        result = "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
-                 self.x, self.y, self.width)
+        result = "[Square] ({:d}) {:d}/{:d} - {:d}".format(
+                 self.id, self.x, self.y, self.size)
         return result
+
+    def update(self, *args, **kwargs):
+        """Pub method to assign and update attributes"""
+        sqDict = {
+            0: self.id,
+            1: self.size,
+            2: self.x,
+            3: self.y
+        }
+        if args:
+            for counter, value in enumerate(args):
+                sqDict[counter] = value
+                self.id, self.size, self.x, self.y = \
+                    sqDict[0], sqDict[1], sqDict[2], sqDict[3]
+        else:
+            for key, value in kwargs.items():
+                if 'id' in kwargs:
+                    self.id = kwargs['id']
+                if 'size' in kwargs:
+                    self.size = kwargs['size']
+                if 'x' in kwargs:
+                    self.x = kwargs['x']
+                if 'y'in kwargs:
+                    self.y = kwargs['y']
