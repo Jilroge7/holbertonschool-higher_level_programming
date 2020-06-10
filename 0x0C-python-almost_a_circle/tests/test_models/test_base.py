@@ -1,22 +1,30 @@
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
+import pep8
 
 
 class BaseTestSuite(unittest.TestCase):
     """class to test creating instances of base"""
     def setUp(self):
         """Before every test suite begins"""
-        print("Starting test Base")
-
-    def test_a_init(self):
-        """Init test for Base"""
         self.b0 = Base()
-        self.assertEqual(self.b0, 1)
         self.b1 = Base(2)
-        self.assertEqual(self.b1, 2)
         self.b2 = Base(17)
-        self.assertEqual(self.b2, 17)
         self.b3 = Base()
+
+    def test_a_pep8(self):
+        """test for pep8 conformity"""
+        pep_8format = pep8.StyleGuide(quiet=True)
+        res = pep_8format.check_files(['base.py', 'rectangle.py', 'square.py'])
+        self.assertEqual(res.total_errors, 0, "Found errors")
+
+    def test_b_init(self):
+        """Init test for Base"""
+        self.assertEqual(self.b0, 1)
+        self.assertEqual(self.b1, 2)
+        self.assertEqual(self.b2, 17)
         self.assertEqual(self.b3, 2)
         with self.assertRaises(ValueError):
             Base(-3)
@@ -30,7 +38,6 @@ class BaseTestSuite(unittest.TestCase):
 
     def tearDown(self):
         """Clean up after yourself"""
-        print("Ending test Base")
         del self.b0
         del self.b1
         del self.b2
