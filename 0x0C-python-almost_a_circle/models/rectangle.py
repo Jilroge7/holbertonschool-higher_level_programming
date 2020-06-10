@@ -22,11 +22,10 @@ class Rectangle(Base):
         """Set value of width"""
         if type(value) != int:
             raise TypeError("width must be an integer")
-        elif type(value) == int:
-            if value <= 0:
-                raise ValueError("width must be > 0")
-            else:
-                self.__width = value
+        if value <= 0:
+            raise ValueError("width must be > 0")
+        else:
+            self.__width = value
 
     @property
     def height(self):
@@ -38,11 +37,10 @@ class Rectangle(Base):
         """set value of height"""
         if type(value) != int:
             raise TypeError("height must be an integer")
-        elif type(value) == int:
-            if value <= 0:
-                raise ValueError("height must be > 0")
-            else:
-                self.__height = value
+        if value <= 0:
+            raise ValueError("height must be > 0")
+        else:
+            self.__height = value
 
     @property
     def x(self):
@@ -54,11 +52,10 @@ class Rectangle(Base):
         """set value of x"""
         if type(value) != int:
             raise TypeError("x must be an integer")
-        elif type(value) == int:
-            if value < 0:
-                raise ValueError("x must be >= 0")
-            else:
-                self.__x = value
+        if value < 0:
+            raise ValueError("x must be >= 0")
+        else:
+            self.__x = value
 
     @property
     def y(self):
@@ -70,11 +67,10 @@ class Rectangle(Base):
         """set value of y"""
         if type(value) != int:
             raise TypeError("y must be an integer")
-        elif type(value) == int:
-            if value < 0:
-                raise ValueError("x must be >= 0")
-            else:
-                self.__y = value
+        if value < 0:
+            raise ValueError("x must be >= 0")
+        else:
+            self.__y = value
 
     def area(self):
         """Pub method to determine area of rect"""
