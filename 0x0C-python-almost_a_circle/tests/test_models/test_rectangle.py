@@ -12,7 +12,13 @@ class RectangleInitTestSuite(unittest.TestCase):
         self.r3 = Rectangle(10, 2, 0, 0, -1)
         self.r4 = Rectangle(1, 2, 3, 4)
 
-    def test_a_init(self):
+    def test_a_pep8(self):
+        """Test to check for pep8 format"""
+        pep_8format = pep8.StyleGuide(quiet=True)
+        result = pep_8format.check_files(['models/rectangle.py'])
+        self.assertEqual(result.total_errors, 0, "Found errors")
+
+    def test_b_init(self):
         """Test to return self.id from Rectangle"""
         self.assertEqual(self.r0, 1)
         self.assertEqual(self.r1, 2)
@@ -23,7 +29,7 @@ class RectangleInitTestSuite(unittest.TestCase):
             Rectangle(3)
         self.assertEqual(self.r3, -1)
 
-    def test_b_validating_attributes(self):
+    def test_c_validating_attributes(self):
         """Test cases to validate"""
         self.assertTrue(self.r0)
         self.assertTrue(self.r1)
@@ -47,7 +53,7 @@ class RectangleInitTestSuite(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(0, 0, 0, 0)
 
-    def test_c_area(self):
+    def test_d_area(self):
         """Test cases for area"""
         res0 = Rectangle(10, 2)
         res1 = Rectangle(2, 10)
@@ -71,7 +77,7 @@ class RectangleInitTestSuite(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle.area(0, 12)
 
-    def test_d_Display0(self):
+    def test_e_Display0(self):
         """test cases for rect picture display"""
         with self.assertRaises(TypeError):
             Rectangle.display(0, 6)
@@ -84,21 +90,21 @@ class RectangleInitTestSuite(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle.display(5.00, 2)
 
-    def test_e_str(self):
+    def test_f_str(self):
         """Test cases for __str__"""
         res0 = Rectangle(4, 6, 2, 1, 12)
         res1 = Rectangle(5, 5, 1)
 
-        self.assertEqual(res0.__str__, "[Rectangle] (12) 2/1 - 4/6")
-        self.assertEqual(res1.__str__, "[Rectangle] (1) 1/0 - 5/5")
+        self.assertEqual(res0.__str__(), "[Rectangle] (12) 2/1 - 4/6")
+        self.assertEqual(res1.__str__(), "[Rectangle] (1) 1/0 - 5/5")
         with assertRaises(TypeError):
-            Rectangle().__str__
+            Rectangle().__str__()
         with assertRaises(TypeError):
-            Rectangle(0).__str__
+            Rectangle(0).__str__()
         with assertRaises(ValueError):
-            Rectangle(-10, 2, 5).__str__
+            Rectangle(-10, 2, 5).__str__()
         with assertRaises(ValueError):
-            Rectangle(2, "3", 4, 5).__str__
+            Rectangle(2, "3", 4, 5).__str__()
 
     def tearDown(self):
         """Cleaning up after myself"""

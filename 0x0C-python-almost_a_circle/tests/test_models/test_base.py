@@ -1,7 +1,5 @@
 import unittest
 from models.base import Base
-from models.rectangle import Rectangle
-from models.square import Square
 import pep8
 
 
@@ -17,7 +15,7 @@ class BaseTestSuite(unittest.TestCase):
     def test_a_pep8(self):
         """test for pep8 conformity"""
         pep_8format = pep8.StyleGuide(quiet=True)
-        res = pep_8format.check_files(['base.py', 'rectangle.py', 'square.py'])
+        res = pep_8format.check_files(['models/base.py'])
         self.assertEqual(res.total_errors, 0, "Found errors")
 
     def test_b_init(self):
