@@ -42,6 +42,34 @@ class RectangleInitTestSuite(unittest.TestCase):
             Rectangle(5.00, 7)
         with self.assertRaises(ValueError):
             Rectangle(10, 2, 3, -1)
+        with self.assertRaises(ValueError):
+            Rectangle(0, 0)
+        with self.assertRaises(ValueError):
+            Rectangle(0, 0, 0, 0)
+
+    def test_c_area(self):
+        """Test cases for area"""
+        res0 = Rectangle(10, 2)
+        res1 = Rectangle(2, 10)
+        res2 = Rectangle(10, 2, 0, 0, 12)
+        res3 = Rectangle(1, 2, 3, 4)
+
+        self.assertEqual(res0.area(), 20)
+        self.assertEqual(res1.area(), 20)
+        self.assertEqual(res2.area(), 20)
+        self.assertEqual(res3.area(), 2)
+        with self.assertRaises(AttributeError):
+            Rectangle.area(3)
+        with self.assertRaises(TypeError):
+            Rectangle.area(-3, 4)
+        with self.assertRaises(TypeError):
+            Rectangle.area(5, "5")
+        with self.assertRaises(TypeError):
+            Rectangle.area(5.00, 7)
+        with self.assertRaises(TypeError):
+            Rectangle.area()
+        with self.assertRaises(TypeError):
+            Rectangle.area(0, 12)
 
     def tearDown(self):
         """Cleaning up after myself"""
