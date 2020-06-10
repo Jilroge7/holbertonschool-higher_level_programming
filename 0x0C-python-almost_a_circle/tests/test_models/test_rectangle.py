@@ -71,6 +71,19 @@ class RectangleInitTestSuite(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rectangle.area(0, 12)
 
+    def test_d_Display0(self):
+        """test cases for rect picture display"""
+        with self.assertRaises(TypeError):
+            Rectangle.display(0, 6)
+        with self.assertRaises(TypeError):
+            Rectangle.display(6, "2")
+        with self.assertRaises(AttributeError):
+            Rectangle.display()
+        with self.assertRaises(TypeError):
+            Rectangle.display(0, 0)
+        with self.assertRaises(TypeError):
+            Rectangle.display(5.00, 2)
+
     def tearDown(self):
         """Cleaning up after myself"""
         del self.r0
