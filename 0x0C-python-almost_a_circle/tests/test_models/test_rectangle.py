@@ -77,12 +77,28 @@ class RectangleInitTestSuite(unittest.TestCase):
             Rectangle.display(0, 6)
         with self.assertRaises(TypeError):
             Rectangle.display(6, "2")
-        with self.assertRaises(AttributeError):
+        with self.assertRaises(TypeError):
             Rectangle.display()
         with self.assertRaises(TypeError):
             Rectangle.display(0, 0)
         with self.assertRaises(TypeError):
             Rectangle.display(5.00, 2)
+
+    def test_e_str(self):
+        """Test cases for __str__"""
+        res0 = Rectangle(4, 6, 2, 1, 12)
+        res1 = Rectangle(5, 5, 1)
+
+        self.assertEqual(res0.__str__, "[Rectangle] (12) 2/1 - 4/6")
+        self.assertEqual(res1.__str__, "[Rectangle] (1) 1/0 - 5/5")
+        with assertRaises(TypeError):
+            Rectangle().__str__
+        with assertRaises(TypeError):
+            Rectangle(0).__str__
+        with assertRaises(ValueError):
+            Rectangle(-10, 2, 5).__str__
+        with assertRaises(ValueError):
+            Rectangle(2, "3", 4, 5).__str__
 
     def tearDown(self):
         """Cleaning up after myself"""
