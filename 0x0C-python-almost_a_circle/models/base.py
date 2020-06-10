@@ -3,7 +3,7 @@
 import json
 
 
-class Base():
+class Base:
     """class Base of all classes in project 0x0c"""
     __nb_objects = 0
 
@@ -25,10 +25,10 @@ class Base():
     @staticmethod
     def from_json_string(json_string):
         """return list repr of json str"""
-        if json_string is not None:
-            return json.loads(json_string)
-        else:
+        if json_string is None:
             return "[]"
+        else:
+            return json.loads(json_string)
 
     @classmethod
     def save_to_file(cls, list_objs):
