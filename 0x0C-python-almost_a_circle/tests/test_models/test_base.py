@@ -1,3 +1,4 @@
+"""Module for Base test"""
 import unittest
 from models.base import Base
 import pep8

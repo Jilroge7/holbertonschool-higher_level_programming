@@ -1,5 +1,7 @@
+"""Test Module for Rectangle"""
 import unittest
 from models.rectangle import Rectangle
+import pep8
 
 
 class RectangleInitTestSuite(unittest.TestCase):

@@ -1,5 +1,7 @@
+"""Module for Square Tests"""
 import unittest
 from models.square import Square
+import pep8
 
 
 class SquareTestSuite(unittest.TestCase):
