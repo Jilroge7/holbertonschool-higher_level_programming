@@ -49,3 +49,13 @@ class Square(Rectangle):
                     self.x = kwargs['x']
                 if 'y'in kwargs:
                     self.y = kwargs['y']
+
+    def to_dictionary(self):
+        """Pub method to print str repr of sqr"""
+        sqDict = {
+            'id': self.id,
+            'size': self.width,
+            'x': self.x,
+            'y': self.y
+        }
+        return sqDict
