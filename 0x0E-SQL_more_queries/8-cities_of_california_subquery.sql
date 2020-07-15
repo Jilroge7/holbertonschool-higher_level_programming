@@ -1,3 +1,3 @@
 -- list all the cities of state california
 -- sort ascending order
-SELECT `id`, `name`= (SELECT `name` FROM `states` WHERE `name` = `California`) FROM `cities` ORDER BY id ASC;
+SELECT `id`, `name` FROM `cities` WHERE `state_id` = 1;
