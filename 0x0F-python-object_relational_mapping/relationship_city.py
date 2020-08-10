@@ -3,7 +3,7 @@
 from sqlalchemy import Column, Integer, ForeignKey, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
-from model_state import Base, State
+from relationship_state import State, Base
 
 Base = declarative_base()
 
