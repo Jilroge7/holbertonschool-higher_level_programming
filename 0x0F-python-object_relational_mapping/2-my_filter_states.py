@@ -11,7 +11,8 @@ if __name__ == "__main__":
     curse.execute("SELECT * FROM states WHERE name='{}' ORDER BY id ASC"
                   .format(sys.argv[4]))
     looky_rows = curse.fetchall()
-    for row in looky_rows:
-        print(row)
+    for row in looky_rows.split():
+        if row[0].isupper():
+            print(row)
     curse.close()
     conn.close()
