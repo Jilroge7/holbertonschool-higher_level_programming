@@ -17,8 +17,8 @@ if __name__ == "__main__":
     session = Session()
     for \
         state, city in \
-            session.query(State, City).order_by(State.id, City.id).all():
-        if (state.id == city.state_id):
+            session.query(State).order_by(states.id, State.cities.id).all():
+        if (state.id == state.cities.id):
             tabulation = 1
             print("{}: {}".format(state.id, state.name))
             print("{}{}: {}".format(tabulation, city.id, city.name))
