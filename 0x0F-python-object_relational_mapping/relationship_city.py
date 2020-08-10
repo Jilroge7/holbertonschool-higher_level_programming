@@ -5,8 +5,6 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from relationship_state import State, Base
 
-Base = declarative_base()
-
 
 class City(Base):
     """ City Class inherits from Base """
