@@ -1,9 +1,8 @@
 #!/usr/bin/python3
-""" Script to list all sate and corresponding city objects frm database """
+""" Script to list all city objects related to state frm database """
 if __name__ == "__main__":
     from sqlalchemy import create_engine
     from sqlalchemy.orm import sessionmaker
-    from sqlalchemy.orm import relationship
     from relationship_state import State, Base
     from relationship_city import City
     import sys
@@ -15,12 +14,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
 
     session = Session()
-    for \
-        state, city in \
-            session.query(State).order_by(states.id, State.cities.id).all():
-        if (state.id == state.cities.id):
-            tabulation = 1
-            print("{}: {}".format(state.id, state.name))
-            print("{}{}: {}".format(tabulation, city.id, city.name))
-            tabulation += 1
+    states = session.query(State).all()
+    for single_state in states:
+        print(" {}: {}".format(single_state.id, single_state.name))
+        for city in single_state.cities:
+            print("    {}: {}".format(city.id, city.name))
     session.close()
