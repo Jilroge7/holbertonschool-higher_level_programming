@@ -18,5 +18,5 @@ if __name__ == "__main__":
     for single_state in states:
         print(" {}: {}".format(single_state.id, single_state.name))
         for city in single_state.cities:
-            print("    {}: {}".format(city.id, city.name))
+            print("\t{}: {}".format(city.id, city.name))
     session.close()
