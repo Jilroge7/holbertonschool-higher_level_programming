@@ -3,8 +3,8 @@
 if __name__ == "__main__":
     from sqlalchemy import create_engine
     from sqlalchemy.orm import sessionmaker
-    from relationship_state import State
-    from relationship_city import City, Base
+    from relationship_state import State, Base
+    from relationship_city import City
     import sys
 
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
@@ -16,5 +16,5 @@ if __name__ == "__main__":
     session = Session()
     res = session.query(City).all()
     for city in res:
-        print(" {}: {} -> {}".format(city.id, city.name, city.state.name))
+        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
     session.close()
