@@ -1,0 +1,2 @@
+-- Complexity of algorithm for task 6
+O(nlog(n))
