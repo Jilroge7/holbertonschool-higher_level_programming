@@ -3,14 +3,23 @@
 if __name__ == "__main__":
     import requests
     import sys
+
+    length = len(sys.argv)
+    if length < 2:
+        q = ""
+    else:
+        q = sys.argv[1]
+
+    response = requests.post('http://0.0.0.0:5000/search_user',
+                             data={'q': q})
     try:
-        response = requests.get('http://0.0.0.0:5000/search_user',
-                                params={'q': sys.argv[0]})
         json_response = response.json()
-        if json_response.status_code == 204 or \
-           json_response.raise_for_status():
-            print("Not a valid JSON")
-        # repository = json_response['items'][0]
-        # print("[{}] {}".format(***something***)
-    except IndexError:
-        print("No result")
+        if json_response == {}:
+            print("No result")
+        else:
+            json_id = json_response.get('id')
+            json_name = json_response.get('name')
+            print("[{}] {}".format(json_id, json_name))
+    except:
+        print("Not a valid JSON")
+        exit()
